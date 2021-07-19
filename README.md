@@ -35,8 +35,10 @@ Boolean value indicating whether entities were updated succesfully.
 
 ## Example usage
 
+```
 uses: actions/entity-update-orchestration-github-action@v1.1
 with:
     github-token: ${{ secrets.GITHUB_TOKEN }}
     srclaunch-project-id: ${{ secrets.SRCLAUNCH_PROJECT_ID }}
     srclaunch-project-pipeline-secret: ${{ secrets.SRCLAUNCH_PROJECT_PIPELINE_SECRET }}
+```
