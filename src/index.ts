@@ -56,7 +56,7 @@ async function main() {
     // console.log(content);
     // }
 
-    for await (const file of diff) {
+    for (const file of diff) {
       console.log('file', file);
       console.log('path.dirname(__dirname)', path.dirname(__dirname));
       console.log(
@@ -93,9 +93,9 @@ async function main() {
 
     // core.setOutput('time', time);
     // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2);
+    // const payload = JSON.stringify(github.context.payload, undefined, 2);
 
-    console.log(`The event payload: ${payload}`);
+    // console.log(`The event payload: ${payload}`);
   } catch (error) {
     console.log('error', error);
     // core.setFailed(error.message);
