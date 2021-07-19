@@ -2,7 +2,8 @@ import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import * as github from '@actions/github';
 import * as glob from '@actions/glob';
-import {PushEvent} from '@octokit/webhooks-definitions/schema';
+import { PushEvent } from '@octokit/webhooks-definitions/schema';
+const { promises: fs } = require('fs');
 
 async function runCommand(command: string) {
   let myOutput = '';
@@ -48,7 +49,10 @@ async function main() {
     const globber = await glob.create('entities/*.model.ts');
 
     for await (const file of globber.globGenerator()) {
+      const content = await fs.readFile(file, 'utf8');
+
       console.log(file);
+      console.log(content);
     }
 
     // await runCommand('ls -la');
