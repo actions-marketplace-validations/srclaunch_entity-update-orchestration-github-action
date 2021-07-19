@@ -91,7 +91,7 @@ function main() {
                     // const fileName = path.join(path.dirname(__dirname), file);
                     const content = yield fs_1.promises.readFile(file, 'utf8');
                     console.log('content', content);
-                    const entity = JSON.parse(content);
+                    const entity = JSON.parse(content).default;
                     console.log('entity.name', entity.name);
                 }
             }

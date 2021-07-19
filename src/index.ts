@@ -69,7 +69,7 @@ async function main() {
 
         console.log('content', content);
 
-        const entity = JSON.parse(content);
+        const entity = JSON.parse(content).default;
 
         console.log('entity.name', entity.name);
       }
