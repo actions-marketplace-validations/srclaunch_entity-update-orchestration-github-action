@@ -4,6 +4,9 @@ branding:
   icon: 'database'
   color: 'gray-dark'
 inputs:
+  diff:
+    description: 'A diff of the changes in the push'
+    required: true
   github-token:
     description: 'Token providing access to repository from action'
     required: true
