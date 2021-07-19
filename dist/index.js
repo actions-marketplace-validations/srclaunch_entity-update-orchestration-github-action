@@ -68,7 +68,7 @@ function main() {
         try {
             const projectId = core.getInput('srclaunch-project-id');
             const pipelineSecret = core.getInput('srclaunch-project-pipeline-secret');
-            const diff = core.getInput('diff');
+            const diff = JSON.parse(core.getInput('diff'));
             console.log('diff', diff);
             const githubToken = core.getInput('github-token');
             const context = github.context;
