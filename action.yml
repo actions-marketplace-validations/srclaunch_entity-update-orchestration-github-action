@@ -1,5 +1,8 @@
 name: 'Entity Update Orchestration'
 description: 'Orchestrates database update migrations on entity model changes in SrcLaunch projects'
+branding:
+  icon: 'database'
+  color: 'gray-dark'
 inputs:
   github-token:
     description: 'Token providing access to repository from action'
