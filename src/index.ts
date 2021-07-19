@@ -1,47 +1,47 @@
-import core from '@actions/core'
-import exec from '@actions/exec'
-import github from '@actions/github'
-import glob from '@actions/glob'
-import {PushEvent} from '@octokit/webhooks-definitions/schema'
+import * as core from '@actions/core';
+import exec from '@actions/exec';
+import github from '@actions/github';
+import glob from '@actions/glob';
+import {PushEvent} from '@octokit/webhooks-definitions/schema';
 
 async function runCommand(command: string) {
-  let myOutput = ''
-  let myError = ''
+  let myOutput = '';
+  let myError = '';
   const options = {
     cwd: './',
     listeners: {
       stderr: (data: Buffer) => {
-        myError += data.toString()
+        myError += data.toString();
       },
       stdout: (data: Buffer) => {
-        myOutput += data.toString()
+        myOutput += data.toString();
       }
     }
-  }
+  };
 
-  await exec.exec('node', command.split(' '), options)
+  await exec.exec('node', command.split(' '), options);
 
-  console.log(myError)
-  console.log(myOutput)
+  console.log(myError);
+  console.log(myOutput);
 }
 
 async function main() {
   try {
-    const projectId = core.getInput('srclaunch-project-id')
-    const pipelineSecret = core.getInput('srclaunch-project-pipeline-secret')
-    const githubToken = core.getInput('github-token')
-    const context = github.context
-    const repo = context.repo
-    const pushPayload = github.context.payload as PushEvent
+    const projectId = core.getInput('srclaunch-project-id');
+    const pipelineSecret = core.getInput('srclaunch-project-pipeline-secret');
+    const githubToken = core.getInput('github-token');
+    const context = github.context;
+    const repo = context.repo;
+    const pushPayload = github.context.payload as PushEvent;
 
-    const headCommit = pushPayload.head_commit
+    const headCommit = pushPayload.head_commit;
 
-    const octokit = github.getOctokit(githubToken)
+    const octokit = github.getOctokit(githubToken);
 
-    const globber = await glob.create('entities/*.model.js')
+    const globber = await glob.create('entities/*.model.js');
 
     for await (const file of globber.globGenerator()) {
-      console.log(file)
+      console.log(file);
     }
 
     // await runCommand('ls -la');
@@ -68,13 +68,13 @@ async function main() {
 
     // core.setOutput('time', time);
     // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
+    const payload = JSON.stringify(github.context.payload, undefined, 2);
 
-    console.log(`The event payload: ${payload}`)
+    console.log(`The event payload: ${payload}`);
   } catch (error) {
-    console.log('error', error)
+    console.log('error', error);
     // core.setFailed(error.message);
   }
 }
 
-main()
+main();
