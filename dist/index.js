@@ -84,14 +84,16 @@ function main() {
             // console.log(file);
             // console.log(content);
             // }
-            for (const file of diff) {
-                console.log('file', file);
-                console.log('path.dirname(__dirname)', path_1.default.dirname(__dirname));
-                console.log('path.join(path.dirname(__dirname), file)', path_1.default.join(path_1.default.dirname(__dirname), file));
-                const fileName = path_1.default.join(path_1.default.dirname(__dirname), file);
-                const content = yield fs_1.promises.readFile(fileName, 'utf8');
-                console.log(file);
-                console.log(content);
+            if (diff.length > 0) {
+                for (const file of diff) {
+                    console.log('file', file);
+                    console.log('path.dirname(__dirname)', path_1.default.dirname(__dirname));
+                    console.log('path.join(path.dirname(__dirname), file)', path_1.default.join(path_1.default.dirname(__dirname), file));
+                    const fileName = path_1.default.join(path_1.default.dirname(__dirname), file);
+                    const content = yield fs_1.promises.readFile(fileName, 'utf8');
+                    console.log(file);
+                    console.log(content);
+                }
             }
             // await runCommand('ls -la');
             // octokit.rest.repos.downloadTarballArchive({
