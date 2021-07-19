@@ -1,7 +1,7 @@
 {
   "name": "@srclaunch/entity-orchestration-github-action",
   "description": "Orchestrates database update migrations on entity model changes in SrcLaunch projects",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "engines": {
     "node": "^12 || ^14",
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@octokit/webhooks-definitions": "^3.67.3",
+    "@tsconfig/node12": "^1.0.9",
     "@tsconfig/node14": "^1.0.1",
     "standard-version": "^9.3.1",
     "typescript": "^4.3.5"
