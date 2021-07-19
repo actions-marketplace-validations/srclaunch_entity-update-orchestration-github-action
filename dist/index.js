@@ -78,7 +78,7 @@ function main() {
             const pushPayload = github.context.payload;
             const headCommit = pushPayload.head_commit;
             const octokit = github.getOctokit(githubToken);
-            const globber = yield glob.create('entities/*.model.js');
+            const globber = yield glob.create('entities/*.model.ts');
             try {
                 for (var _b = __asyncValues(globber.globGenerator()), _c; _c = yield _b.next(), !_c.done;) {
                     const file = _c.value;

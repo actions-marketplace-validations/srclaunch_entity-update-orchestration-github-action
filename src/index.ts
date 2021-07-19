@@ -38,7 +38,7 @@ async function main() {
 
     const octokit = github.getOctokit(githubToken);
 
-    const globber = await glob.create('entities/*.model.js');
+    const globber = await glob.create('entities/*.model.ts');
 
     for await (const file of globber.globGenerator()) {
       console.log(file);
