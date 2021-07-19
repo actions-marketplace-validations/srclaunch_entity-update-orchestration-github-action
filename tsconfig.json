@@ -1,17 +1,7 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "module": "commonjs",
-    "allowJs": true,
-    "checkJs": false,
-    "pretty": true,
-    "esModuleInterop": true,
-    "lib": ["es2015"],
     "target": "es5",
-    "sourceMap": false,
-    "moduleResolution": "node",
-    "outDir": "dist",
-    "resolveJsonModule": true
+    "moduleResolution": "node"
   },
   "extends": "@tsconfig/node12/tsconfig.json",
   "include": ["src"],
