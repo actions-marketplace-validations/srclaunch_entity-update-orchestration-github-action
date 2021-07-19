@@ -1,8 +1,8 @@
 import * as core from '@actions/core';
-import exec from '@actions/exec';
-import github from '@actions/github';
-import glob from '@actions/glob';
-import {PushEvent} from '@octokit/webhooks-definitions/schema';
+import * as exec from '@actions/exec';
+import * as github from '@actions/github';
+import * as glob from '@actions/glob';
+import { PushEvent } from '@octokit/webhooks-definitions/schema';
 
 async function runCommand(command: string) {
   let myOutput = '';
@@ -15,8 +15,8 @@ async function runCommand(command: string) {
       },
       stdout: (data: Buffer) => {
         myOutput += data.toString();
-      }
-    }
+      },
+    },
   };
 
   await exec.exec('node', command.split(' '), options);
