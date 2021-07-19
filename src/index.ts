@@ -63,7 +63,7 @@ async function main() {
       repo: 'rest.js',
     });
 
-    console.log(`Hello ${nameToGreet}!`);
+    // console.log(`Hello ${nameToGreet}!`);
     const time = new Date().toTimeString();
 
     core.setOutput('time', time);

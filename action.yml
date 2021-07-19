@@ -23,5 +23,5 @@ outputs:
   update_success:
     description: 'Boolean value indicating whether entities were updated succesfully.'
 runs:
-  using: 'node14'
+  using: 'node12'
   main: 'dist/index.js'
