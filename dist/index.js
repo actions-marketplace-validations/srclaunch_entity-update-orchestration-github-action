@@ -41,14 +41,11 @@ var __asyncValues = (this && this.__asyncValues) || function (o) {
     function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
     function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(2186));
-const exec_1 = __importDefault(__nccwpck_require__(1514));
-const github_1 = __importDefault(__nccwpck_require__(5438));
-const glob_1 = __importDefault(__nccwpck_require__(8090));
+const exec = __importStar(__nccwpck_require__(1514));
+const github = __importStar(__nccwpck_require__(5438));
+const glob = __importStar(__nccwpck_require__(8090));
 function runCommand(command) {
     return __awaiter(this, void 0, void 0, function* () {
         let myOutput = '';
@@ -64,7 +61,7 @@ function runCommand(command) {
                 },
             },
         };
-        yield exec_1.default.exec('node', command.split(' '), options);
+        yield exec.exec('node', command.split(' '), options);
         console.log(myError);
         console.log(myOutput);
     });
@@ -76,12 +73,12 @@ function main() {
             const projectId = core.getInput('srclaunch-project-id');
             const pipelineSecret = core.getInput('srclaunch-project-pipeline-secret');
             const githubToken = core.getInput('github-token');
-            const context = github_1.default.context;
+            const context = github.context;
             const repo = context.repo;
-            const pushPayload = github_1.default.context.payload;
+            const pushPayload = github.context.payload;
             const headCommit = pushPayload.head_commit;
-            const octokit = github_1.default.getOctokit(githubToken);
-            const globber = yield glob_1.default.create('entities/*.model.js');
+            const octokit = github.getOctokit(githubToken);
+            const globber = yield glob.create('entities/*.model.js');
             try {
                 for (var _b = __asyncValues(globber.globGenerator()), _c; _c = yield _b.next(), !_c.done;) {
                     const file = _c.value;
@@ -115,7 +112,7 @@ function main() {
             // const time = new Date().toTimeString();
             // core.setOutput('time', time);
             // Get the JSON webhook payload for the event that triggered the workflow
-            const payload = JSON.stringify(github_1.default.context.payload, undefined, 2);
+            const payload = JSON.stringify(github.context.payload, undefined, 2);
             console.log(`The event payload: ${payload}`);
         }
         catch (error) {
