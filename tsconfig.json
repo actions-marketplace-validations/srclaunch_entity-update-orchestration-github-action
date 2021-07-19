@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": false,
+    "pretty": true,
+    "esModuleInterop": true,
+    "lib": ["es2015"],
+    "target": "es5",
+    "sourceMap": false,
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "resolveJsonModule": true
+  },
+  "extends": "@tsconfig/node14/tsconfig.json",
+  "include": ["src"],
+  "exclude": ["node_modules", "tests", "dist"]
+}

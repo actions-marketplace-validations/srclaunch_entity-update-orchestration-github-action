@@ -1,0 +1,29 @@
+{
+  "name": "@srclaunch/entity-orchestration-github-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "^12 || ^14",
+    "npm": "^6 || ^7"
+  },
+  "scripts": {
+    "build": "tsc",
+    "release": "standard-version && git push --follow-tags origin main",
+    "test": "ava"
+  },
+  "keywords": [],
+  "author": "Steven Bennett <steven@srclaunch.com",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/exec": "^1.1.0",
+    "@actions/github": "^5.0.0",
+    "@actions/glob": "^0.2.0"
+  },
+  "devDependencies": {
+    "@octokit/webhooks-definitions": "^3.67.3",
+    "standard-version": "^9.3.1",
+    "typescript": "^4.3.5"
+  }
+}
