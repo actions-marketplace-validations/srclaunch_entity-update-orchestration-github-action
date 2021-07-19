@@ -47,7 +47,7 @@ async function main() {
 
     const octokit = github.getOctokit(githubToken);
 
-    // const globber = await glob.create('entities/*.model.ts');
+    const globber = await glob.create('entities/*.model.ts');
 
     // for await (const file of globber.globGenerator()) {
     // const content = await fs.readFile(file, 'utf8');
@@ -59,15 +59,14 @@ async function main() {
     if (diff.length > 0) {
       for (const file of diff) {
         console.log('file', file);
-        console.log('path.dirname(__dirname)', path.dirname(__dirname));
-        console.log(
-          'path.join(path.dirname(__dirname), file)',
-          path.join(path.dirname(__dirname), file),
-        );
-        const fileName = path.join(path.dirname(__dirname), file);
-        const content = await promises.readFile(fileName, 'utf8');
+        // console.log('path.dirname(__dirname)', path.dirname(__dirname));
+        // console.log(
+        //   'path.join(path.dirname(__dirname), file)',
+        //   path.join(path.dirname(__dirname), file),
+        // );
+        // const fileName = path.join(path.dirname(__dirname), file);
+        const content = await promises.readFile(file, 'utf8');
 
-        console.log(file);
         console.log(content);
       }
     }
