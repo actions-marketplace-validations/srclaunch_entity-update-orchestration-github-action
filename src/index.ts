@@ -44,7 +44,7 @@ async function main() {
       console.log(file);
     }
 
-    await runCommand('ls -la');
+    // await runCommand('ls -la');
 
     // octokit.rest.repos.downloadTarballArchive({
     //   owner: repo.owner,
@@ -54,19 +54,19 @@ async function main() {
     // You can also pass in additional options as a second parameter to getOctokit
     // const octokit = github.getOctokit(myToken, {userAgent: "MyActionVersion1"});
 
-    const { data: pullRequest } = await octokit.rest.pulls.get({
-      mediaType: {
-        format: 'diff',
-      },
-      owner: 'octokit',
-      pull_number: 123,
-      repo: 'rest.js',
-    });
+    // const { data: pullRequest } = await octokit.rest.pulls.get({
+    //   mediaType: {
+    //     format: 'diff',
+    //   },
+    //   owner: 'octokit',
+    //   pull_number: 123,
+    //   repo: 'rest.js',
+    // });
 
     // console.log(`Hello ${nameToGreet}!`);
-    const time = new Date().toTimeString();
+    // const time = new Date().toTimeString();
 
-    core.setOutput('time', time);
+    // core.setOutput('time', time);
     // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify(github.context.payload, undefined, 2);
 

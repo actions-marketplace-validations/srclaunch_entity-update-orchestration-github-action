@@ -10117,7 +10117,7 @@ function runCommand(command) {
                             },
                         },
                     };
-                    return [4 /*yield*/, _actions_exec__WEBPACK_IMPORTED_MODULE_1___default().exec('node', command.split(' '), options)];
+                    return [4 /*yield*/, exec.exec('node', command.split(' '), options)];
                 case 1:
                     _a.sent();
                     console.log(myError);
@@ -10130,11 +10130,11 @@ function runCommand(command) {
 function main() {
     var e_1, _a;
     return __awaiter(this, void 0, void 0, function () {
-        var projectId, pipelineSecret, githubToken, context, repo, pushPayload, headCommit, octokit, globber, _b, _c, file, e_1_1, pullRequest, time, payload, error_1;
+        var projectId, pipelineSecret, githubToken, context, repo, pushPayload, headCommit, octokit, globber, _b, _c, file, e_1_1, payload, error_1;
         return __generator(this, function (_d) {
             switch (_d.label) {
                 case 0:
-                    _d.trys.push([0, 16, , 17]);
+                    _d.trys.push([0, 14, , 15]);
                     projectId = _actions_core__WEBPACK_IMPORTED_MODULE_0___default().getInput('srclaunch-project-id');
                     pipelineSecret = _actions_core__WEBPACK_IMPORTED_MODULE_0___default().getInput('srclaunch-project-pipeline-secret');
                     githubToken = _actions_core__WEBPACK_IMPORTED_MODULE_0___default().getInput('github-token');
@@ -10175,29 +10175,15 @@ function main() {
                     if (e_1) throw e_1.error;
                     return [7 /*endfinally*/];
                 case 12: return [7 /*endfinally*/];
-                case 13: return [4 /*yield*/, runCommand('ls -la')];
-                case 14:
-                    _d.sent();
-                    return [4 /*yield*/, octokit.rest.pulls.get({
-                            mediaType: {
-                                format: 'diff',
-                            },
-                            owner: 'octokit',
-                            pull_number: 123,
-                            repo: 'rest.js',
-                        })];
-                case 15:
-                    pullRequest = (_d.sent()).data;
-                    time = new Date().toTimeString();
-                    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setOutput('time', time);
+                case 13:
                     payload = JSON.stringify((_actions_github__WEBPACK_IMPORTED_MODULE_2___default().context.payload), undefined, 2);
                     console.log("The event payload: " + payload);
-                    return [3 /*break*/, 17];
-                case 16:
+                    return [3 /*break*/, 15];
+                case 14:
                     error_1 = _d.sent();
                     _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setFailed(error_1.message);
-                    return [3 /*break*/, 17];
-                case 17: return [2 /*return*/];
+                    return [3 /*break*/, 15];
+                case 15: return [2 /*return*/];
             }
         });
     });
