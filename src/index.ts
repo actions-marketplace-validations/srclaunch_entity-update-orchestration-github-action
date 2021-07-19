@@ -46,15 +46,21 @@ async function main() {
 
     const octokit = github.getOctokit(githubToken);
 
-    const globber = await glob.create('entities/*.model.ts');
+    // const globber = await glob.create('entities/*.model.ts');
 
-    for await (const file of globber.globGenerator()) {
+    // for await (const file of globber.globGenerator()) {
+    // const content = await fs.readFile(file, 'utf8');
+
+    // console.log(file);
+    // console.log(content);
+    // }
+
+    for await (const file of diff) {
       const content = await fs.readFile(file, 'utf8');
 
       console.log(file);
       console.log(content);
     }
-
     // await runCommand('ls -la');
 
     // octokit.rest.repos.downloadTarballArchive({
