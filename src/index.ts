@@ -57,6 +57,12 @@ async function main() {
     // }
 
     for await (const file of diff) {
+      console.log('file', file);
+      console.log('path.dirname(__dirname)', path.dirname(__dirname));
+      console.log(
+        'path.join(path.dirname(__dirname), file)',
+        path.join(path.dirname(__dirname), file),
+      );
       const fileName = path.join(path.dirname(__dirname), file);
       const content = await promises.readFile(fileName, 'utf8');
 

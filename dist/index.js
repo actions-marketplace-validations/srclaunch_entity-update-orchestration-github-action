@@ -95,6 +95,9 @@ function main() {
                 // }
                 for (var diff_1 = __asyncValues(diff), diff_1_1; diff_1_1 = yield diff_1.next(), !diff_1_1.done;) {
                     const file = diff_1_1.value;
+                    console.log('file', file);
+                    console.log('path.dirname(__dirname)', path_1.default.dirname(__dirname));
+                    console.log('path.join(path.dirname(__dirname), file)', path_1.default.join(path_1.default.dirname(__dirname), file));
                     const fileName = path_1.default.join(path_1.default.dirname(__dirname), file);
                     const content = yield fs_1.promises.readFile(fileName, 'utf8');
                     console.log(file);
