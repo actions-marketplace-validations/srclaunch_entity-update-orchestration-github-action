@@ -10181,7 +10181,7 @@ function main() {
                     return [3 /*break*/, 15];
                 case 14:
                     error_1 = _d.sent();
-                    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setFailed(error_1.message);
+                    console.log('error', error_1);
                     return [3 /*break*/, 15];
                 case 15: return [2 /*return*/];
             }
