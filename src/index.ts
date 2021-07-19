@@ -2,7 +2,7 @@ import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import * as github from '@actions/github';
 import * as glob from '@actions/glob';
-import {PushEvent} from '@octokit/webhooks-definitions/schema';
+import { PushEvent } from '@octokit/webhooks-definitions/schema';
 
 async function runCommand(command: string) {
   let myOutput = '';
@@ -29,10 +29,17 @@ async function main() {
   try {
     const projectId = core.getInput('srclaunch-project-id');
     const pipelineSecret = core.getInput('srclaunch-project-pipeline-secret');
+    const diff = core.getInput('diff');
+
+    console.log('diff', diff);
+
     const githubToken = core.getInput('github-token');
     const context = github.context;
     const repo = context.repo;
     const pushPayload = github.context.payload as PushEvent;
+
+    const beforeRef = pushPayload.before;
+    const afterRef = pushPayload.after;
 
     const headCommit = pushPayload.head_commit;
 
