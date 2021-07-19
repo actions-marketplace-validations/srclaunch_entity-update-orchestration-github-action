@@ -3,7 +3,8 @@ import * as exec from '@actions/exec';
 import * as github from '@actions/github';
 import * as glob from '@actions/glob';
 import { PushEvent } from '@octokit/webhooks-definitions/schema';
-const { promises: fs } = require('fs');
+import { promises } from 'fs';
+import path from 'path';
 
 async function runCommand(command: string) {
   let myOutput = '';
@@ -56,7 +57,8 @@ async function main() {
     // }
 
     for await (const file of diff) {
-      const content = await fs.readFile(file, 'utf8');
+      const fileName = path.join(path.dirname(__dirname), file);
+      const content = await promises.readFile(fileName, 'utf8');
 
       console.log(file);
       console.log(content);
